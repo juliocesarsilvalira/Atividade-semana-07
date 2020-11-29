@@ -1,0 +1,14 @@
+lista_A = []
+lista_B = []
+while len(lista_A) < 5:
+    lista_A.append(input("Digite o nome do carro: "))
+    lista_B.append(float(input("Digite o consumo do carro (km/L): ")))
+x = ""
+g = 2.25
+total_km = 1000
+for i, j in enumerate(lista_A):
+    consumo = round(total_km/lista_B[i], 2)
+    x += "O carro {} consome {} litros e custará R${} quando fizer {} quilômetros.\n".format(j, consumo, round(consumo*g, 2), total_km)
+print("")
+print("O carro mais económico é o {}.".format(lista_A[lista_B.index(max(lista_B))]), )
+print(x)

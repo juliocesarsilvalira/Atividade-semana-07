@@ -1,0 +1,26 @@
+import random 
+palavras = input("Digite as palavras: ")
+palavras = palavras.split(" ")
+
+uma_palavra = palavras[random.randrange(0,len(palavras))]
+palavra_escondida = ["_" for i in uma_palavra]
+print(palavra_escondida)
+x = 1
+while x < 7 and palavra_escondida.count("_") != 0:
+    letra = input("Digite uma letra: ")
+    if letra in uma_palavra:
+        for i in range(len(uma_palavra)):
+            if letra == uma_palavra[i]:
+                del palavra_escondida[i]
+                palavra_escondida.insert(i,letra)
+        print(" ".join(palavra_escondida))
+    elif x == 1:
+        print("Você errou ",x,"vez.")
+        x += 1
+    else:
+        print("Você errou",x,"vezes.")
+        x += 1
+if palavra_escondida.count("_") == 0:
+    print("Você venceu!")
+else:
+    print("Forca!")
